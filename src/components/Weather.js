@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-// import FormattedDate from "./FormattedDate";
+import FormattedDate from "./FormattedDate";
 import img from "../img/img-1.png";
 import axios from "axios";
 
@@ -7,7 +7,6 @@ export default function Weather({ defaultCity }) {
   const [weatherData, setWeatherData] = useState({ ready: false });
 
   function displayResponse(response) {
-    console.log(response);
     setWeatherData({
       ready: true,
       temp: response.data.temperature.current,
@@ -38,7 +37,7 @@ export default function Weather({ defaultCity }) {
             <button type="submit" className="current-location-btn">
               Current location
             </button>
-            {/* <FormattedDate date={weatherData.date} /> */}
+            <FormattedDate date={weatherData.date} />
           </form>
         </header>
         <main>

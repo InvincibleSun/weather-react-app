@@ -1,6 +1,6 @@
-// import React from "react";
+import React from "react";
 
-export default function FormattedDate(date) {
+export default function FormattedDate({ date }) {
   const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
   const day = days[date.getDay()];
 
@@ -26,5 +26,9 @@ export default function FormattedDate(date) {
     num = "0" + num;
   }
 
-  return `${day} ${hours}:${minutes} | ${num}.${+month + 1}.${year}`;
+  return (
+    <p>
+      {day} {hours}:{minutes} | {num}.{+month + 1}.{year}
+    </p>
+  );
 }
