@@ -1,0 +1,121 @@
+*,
+p,
+h1,
+h2 {
+  margin: 0;
+  padding: 0;
+}
+a {
+  text-decoration: none;
+}
+body,
+html {
+  box-sizing: border-box;
+  color: #222;
+  height: 100%;
+  font-family: "Open Sans", sans-serif;
+}
+
+.container {
+  padding: 30px;
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  background: radial-gradient(
+    circle at 10% 20%,
+    rgba(91, 173, 254, 0.26) 0%,
+    rgba(91, 224, 254, 0.46) 47.2%,
+    rgba(230, 254, 235, 0.93) 90%
+  );
+}
+
+/* HEADER */
+input {
+  width: 30%;
+  height: 25px;
+  padding: 5px;
+  margin: 0 20px 20px 0;
+  border: 2px solid #07f;
+  border-radius: 4px;
+  background-color: #d7e5f3;
+  font-size: 16px;
+}
+input:hover,
+input:focus {
+  cursor: pointer;
+  background-color: #d2f0f0;
+}
+button {
+  width: 160px;
+  height: 40px;
+  border-radius: 40px;
+  border: 2px solid #07f;
+  background-color: #d7e5f3;
+  margin-right: 20px;
+  font-size: 16px;
+}
+button:hover,
+button:focus {
+  cursor: pointer;
+  background-color: #d2f0f0;
+}
+
+.time {
+  margin-top: 15px;
+}
+
+/* MAIN */
+main {
+  display: flex;
+  flex-direction: column;
+  flex: 1 0 auto;
+}
+
+.current-weather {
+  padding: 105px 150px 100px;
+  align-self: center;
+  text-align: center;
+  margin: 40px 0px;
+  background: 50%/430px 430px no-repeat;
+}
+
+h2 {
+  display: flex;
+  justify-content: center;
+  font-size: 34px;
+  line-height: 1.2;
+  margin-right: 3px;
+}
+
+h1 {
+  font-size: 36px;
+  font-weight: 900;
+  line-height: 1.2;
+}
+
+p {
+  font-size: 18px;
+}
+
+.description::first-letter {
+  text-transform: capitalize;
+}
+
+/* FOOTER */
+
+.more-info {
+  display: block;
+  padding: 5px;
+  color: inherit;
+  width: 30%;
+  height: 25px;
+  border: 2px solid #07f;
+  border-radius: 5px;
+  margin-top: 10px;
+}
+
+.git-link {
+  margin: 15px;
+  text-align: center;
+  font-size: 14px;
+}
