@@ -7,6 +7,7 @@ import { ColorRing } from "react-loader-spinner";
 export default function Weather({ defaultCity }) {
   const [weatherData, setWeatherData] = useState({ ready: false });
   const [city, setDesiredCity] = useState(defaultCity);
+  const key = "43d3et5af795ffa0ab49fde8co6936b2";
 
   function displayResponse(response) {
     setWeatherData({
@@ -22,7 +23,6 @@ export default function Weather({ defaultCity }) {
   }
 
   function search() {
-    const key = "43d3et5af795ffa0ab49fde8co6936b2";
     axios
       .get(`https://api.shecodes.io/weather/v1/current?query=${city}&key=${key}&units=metric`)
       .then(displayResponse);
@@ -37,10 +37,30 @@ export default function Weather({ defaultCity }) {
     setDesiredCity(event.target.value);
   }
 
+  function getCoords(event) {
+    event.preventDefault();
+    navigator.geolocation.getCurrentPosition(retrieveGeolocation);
+  }
+
+  function retrieveGeolocation(position) {
+    const lon = position.coords.longitude.toFixed(2);
+    const lat = position.coords.latitude.toFixed(2);
+
+    axios
+      .get(
+        `https://api.shecodes.io/weather/v1/current?lon=${lon}&lat=${lat}&key=${key}&units=metric`
+      )
+      .then(displayResponse);
+  }
+
   if (weatherData.ready) {
     return (
       <div className="Weather">
-        <SearchEngine eventChange={handleChange} eventSubmit={handleSubmit} />
+        <SearchEngine
+          eventChange={handleChange}
+          eventSubmit={handleSubmit}
+          eventFindLocation={getCoords}
+        />
         <CurrentWeather data={weatherData} />
       </div>
     );

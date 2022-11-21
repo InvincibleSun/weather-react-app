@@ -120,3 +120,34 @@ p {
   text-align: center;
   font-size: 14px;
 }
+
+@media (max-width: 500px) {
+  .current-weather div {
+    font-size: 24px;
+  }
+
+  h1 {
+    font-size: 26px;
+    font-weight: 700;
+  }
+
+  p {
+    font-size: 14px;
+  }
+}
+@media (max-width: 365px) {
+  button {
+    margin: 10px 10px 0 5px;
+    font-size: 14px;
+    width: 100%;
+  }
+  input {
+    width: 100%;
+    margin: 0 20px 0px 0;
+    font-size: 14px;
+  }
+  .more-info {
+    width: 100%;
+    margin-top: 0px;
+  }
+}
