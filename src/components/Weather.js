@@ -1,6 +1,5 @@
 import React, { useState } from "react";
-import FormattedDate from "./FormattedDate";
-import img from "../img/img-1.png";
+import CurrentWeather from "./CurrentWeather";
 import axios from "axios";
 
 export default function Weather({ defaultCity }) {
@@ -37,31 +36,9 @@ export default function Weather({ defaultCity }) {
             <button type="submit" className="current-location-btn">
               Current location
             </button>
-            <FormattedDate date={weatherData.date} />
           </form>
         </header>
-        <main>
-          <section className="current-weather" style={{ backgroundImage: `url(${img})` }}>
-            <h2>
-              <span className="temp">{Math.round(weatherData.temp)}</span>°C
-            </h2>
-            <h1>{weatherData.city}</h1>
-            <img
-              src={`http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${weatherData.icon}.png`}
-              alt={weatherData.description}
-              className="icon"
-              width="100"
-              height="100"
-            ></img>
-            <p className="description">{weatherData.description}</p>
-            <p className="humidity">
-              Humidity: <b>{weatherData.humidity}</b> %
-            </p>
-            <p className="wind">
-              Wind: <b>{Math.round(weatherData.wind)}</b> km/h
-            </p>
-          </section>
-        </main>
+        <CurrentWeather data={weatherData} />
       </div>
     );
   } else {
