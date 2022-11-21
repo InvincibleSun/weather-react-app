@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import CurrentWeather from "./CurrentWeather";
 import SearchEngine from "./SearchEngine";
 import axios from "axios";
+import { ColorRing } from "react-loader-spinner";
 
 export default function Weather({ defaultCity }) {
   const [weatherData, setWeatherData] = useState({ ready: false });
@@ -45,6 +46,22 @@ export default function Weather({ defaultCity }) {
     );
   } else {
     search();
-    return <h1>Loading...</h1>;
+    return (
+      <ColorRing
+        visible={true}
+        height="100"
+        width="100"
+        ariaLabel="blocks-loading"
+        wrapperStyle={{}}
+        wrapperClass="blocks-wrapper"
+        colors={[
+          "rgba(91, 173, 254, 0.26)",
+          "rgba(91, 224, 254, 0.46)",
+          "rgba(230, 254, 235, 0.93)",
+          "#07f",
+          "#d7e5f3",
+        ]}
+      />
+    );
   }
 }
