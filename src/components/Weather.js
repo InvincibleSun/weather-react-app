@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import CurrentWeather from "./CurrentWeather";
+import SearchEngine from "./SearchEngine";
 import axios from "axios";
 
 export default function Weather({ defaultCity }) {
   const [weatherData, setWeatherData] = useState({ ready: false });
+  const [city, setDesiredCity] = useState(defaultCity);
 
   function displayResponse(response) {
     setWeatherData({
@@ -18,38 +20,31 @@ export default function Weather({ defaultCity }) {
     });
   }
 
+  function search() {
+    const key = "43d3et5af795ffa0ab49fde8co6936b2";
+    axios
+      .get(`https://api.shecodes.io/weather/v1/current?query=${city}&key=${key}&units=metric`)
+      .then(displayResponse);
+  }
+
+  function handleSubmit(event) {
+    event.preventDefault();
+    search();
+  }
+
+  function handleChange(event) {
+    setDesiredCity(event.target.value);
+  }
+
   if (weatherData.ready) {
     return (
       <div className="Weather">
-        <header>
-          <form id="city">
-            <input
-              type="text"
-              name="city"
-              placeholder="Find your city..."
-              className="city-input"
-              autoComplete="on"
-            />
-            <button type="submit" className="find-city-btn">
-              Find!
-            </button>
-            <button type="submit" className="current-location-btn">
-              Current location
-            </button>
-          </form>
-        </header>
+        <SearchEngine eventChange={handleChange} eventSubmit={handleSubmit} />
         <CurrentWeather data={weatherData} />
       </div>
     );
   } else {
-    const key = "43d3et5af795ffa0ab49fde8co6936b2";
-
-    axios
-      .get(
-        `https://api.shecodes.io/weather/v1/current?query=${defaultCity}&key=${key}&units=metric`
-      )
-      .then(displayResponse);
-
+    search();
     return <h1>Loading...</h1>;
   }
 }
