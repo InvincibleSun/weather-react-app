@@ -27,8 +27,8 @@ export default function FormattedDate({ date }) {
   }
 
   return (
-    <p>
+    <div>
       {day} {hours}:{minutes} | {num}.{+month + 1}.{year}
-    </p>
+    </div>
   );
 }

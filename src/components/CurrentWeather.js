@@ -1,5 +1,6 @@
 import React from "react";
 import FormattedDate from "./FormattedDate";
+import Temperature from "./Temperature";
 import img from "../img/img-1.png";
 
 export default function CurrentWeather({ data }) {
@@ -7,9 +8,7 @@ export default function CurrentWeather({ data }) {
     <main>
       <FormattedDate date={data.date} />
       <section className="current-weather" style={{ backgroundImage: `url(${img})` }}>
-        <h2>
-          <span className="temp">{Math.round(data.temp)}</span>°C
-        </h2>
+        <Temperature celsius={data.temp} />
         <h1>{data.city}</h1>
         <img
           src={`http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${data.icon}.png`}
