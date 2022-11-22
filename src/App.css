@@ -72,10 +72,10 @@ main {
 }
 
 .current-weather {
-  padding: 105px 150px 100px;
+  padding: 70px 150px 60px;
   align-self: center;
   text-align: center;
-  margin: 40px 0px;
+  margin: 0px 0px;
   background: 50%/430px 430px no-repeat;
 }
 
@@ -102,6 +102,51 @@ p {
   text-transform: capitalize;
 }
 
+/* FORECAST */
+.forecast-row {
+  display: flex;
+  flex-wrap: wrap;
+}
+.forecast-item {
+  flex: 1 1 14%;
+  align-items: center;
+  justify-content: center;
+  margin: 0 0px 20px;
+  display: flex;
+}
+.forecast-elem {
+  cursor: pointer;
+  width: 50%;
+  padding: 15px;
+  border: 2px solid transparent;
+}
+
+.forecast-elem:hover .forecast-day {
+  color: #025fc9;
+}
+.forecast-elem:hover {
+  background-color: #99c8ec69;
+  border-radius: 6px;
+}
+.forecast-day {
+  text-align: center;
+}
+.forecast-elem img {
+  display: block;
+  margin: 0px auto;
+}
+.forecast-temp {
+  text-align: center;
+  padding: 0 22px;
+}
+.forecast-temp-max {
+  color: #025fc9;
+  margin-right: 15px;
+}
+.forecast-temp-min {
+  opacity: 0.7;
+}
+
 /* FOOTER */
 
 .more-info {
@@ -121,46 +166,11 @@ p {
   font-size: 14px;
 }
 
-/* FORECAST */
-.forecast-row {
-  display: flex;
-  flex-wrap: wrap;
-}
-.forecast-item {
-  flex: 1 1 14%;
-  align-items: center;
-  justify-content: center;
-  margin: 0 0px 20px;
-  display: flex;
-}
-.forecast-elem {
-  cursor: pointer;
-  width: 50%;
-  padding: 15px;
-  border: 2px solid transparent;
-}
-.forecast-elem:hover .forecast-day {
-  color: #025fc9;
-}
-.forecast-day {
-  text-align: center;
-}
-.forecast-elem > img {
-  display: block;
-  margin: 0 auto;
-}
-.forecast-temp {
-  text-align: center;
-}
-.forecast-temp-max {
-  color: #025fc9;
-  margin-right: 5px;
-}
-.forecast-temp-min {
-  opacity: 0.7;
-}
-
 @media (max-width: 500px) {
+  .current-weather {
+    padding: 100px 150px 60px;
+    margin: 20px 0px;
+  }
   .current-weather div {
     font-size: 24px;
   }
@@ -173,7 +183,21 @@ p {
   p {
     font-size: 14px;
   }
+  .more-info {
+    width: 100%;
+    margin-top: 0px;
+  }
+  input {
+    width: 100%;
+  }
 }
+@media (max-width: 390px) {
+  .current-weather {
+    padding: 78px 150px 60px;
+    margin: 20px 0px;
+  }
+}
+
 @media (max-width: 365px) {
   button {
     margin: 10px 10px 0 5px;
@@ -181,12 +205,7 @@ p {
     width: 100%;
   }
   input {
-    width: 100%;
     margin: 0 20px 0px 0;
     font-size: 14px;
-  }
-  .more-info {
-    width: 100%;
-    margin-top: 0px;
   }
 }

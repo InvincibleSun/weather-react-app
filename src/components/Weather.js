@@ -8,7 +8,7 @@ import { ColorRing } from "react-loader-spinner";
 export default function Weather({ defaultCity }) {
   const [weatherData, setWeatherData] = useState({ ready: false });
   const [city, setDesiredCity] = useState(defaultCity);
-  const key = "43d3et5af795ffa0ab49fde8co6936b2";
+  const apiKey = "43d3et5af795ffa0ab49fde8co6936b2";
 
   function displayResponse(response) {
     setWeatherData({
@@ -25,7 +25,7 @@ export default function Weather({ defaultCity }) {
 
   function search() {
     axios
-      .get(`https://api.shecodes.io/weather/v1/current?query=${city}&key=${key}&units=metric`)
+      .get(`https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`)
       .then(displayResponse);
   }
 
@@ -49,7 +49,7 @@ export default function Weather({ defaultCity }) {
 
     axios
       .get(
-        `https://api.shecodes.io/weather/v1/current?lon=${lon}&lat=${lat}&key=${key}&units=metric`
+        `https://api.shecodes.io/weather/v1/current?lon=${lon}&lat=${lat}&key=${apiKey}&units=metric`
       )
       .then(displayResponse);
   }
@@ -63,7 +63,7 @@ export default function Weather({ defaultCity }) {
           eventFindLocation={getCoords}
         />
         <CurrentWeather data={weatherData} />
-        <Forecast/>
+        <Forecast city={weatherData.city} />
       </div>
     );
   } else {

@@ -12,7 +12,7 @@ export default function Footer() {
           target="_blank"
           rel="noreferrer"
         >
-          Open-source code
+          Open-source code in GitHub
         </a>
         , by Yulia Vitiunina
       </p>
