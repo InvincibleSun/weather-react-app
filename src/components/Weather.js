@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import CurrentWeather from "./CurrentWeather";
 import SearchEngine from "./SearchEngine";
+import Forecast from "./Forecast";
 import axios from "axios";
 import { ColorRing } from "react-loader-spinner";
 
@@ -62,6 +63,7 @@ export default function Weather({ defaultCity }) {
           eventFindLocation={getCoords}
         />
         <CurrentWeather data={weatherData} />
+        <Forecast/>
       </div>
     );
   } else {

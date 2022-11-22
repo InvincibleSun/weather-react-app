@@ -13,7 +13,7 @@ export default function SearchEngine(props) {
           onChange={props.eventChange}
         />
         <button type="submit" className="find-city-btn">
-          Find!
+          Search
         </button>
         <button type="submit" className="current-location-btn" onClick={props.eventFindLocation}>
           Current location
