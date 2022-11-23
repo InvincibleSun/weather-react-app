@@ -1,13 +1,13 @@
 import React from "react";
 import FormattedDate from "./FormattedDate";
 import Temperature from "./Temperature";
-import img from "../img/img-1.png";
+// import img from "../img/img-1.png";
 
 export default function CurrentWeather({ data }) {
   return (
     <main>
       <FormattedDate date={data.date} />
-      <section className="current-weather" style={{ backgroundImage: `url(${img})` }}>
+      <section className="current-weather">
         <Temperature celsius={data.temp} />
         <h1>{data.city}</h1>
         <img
