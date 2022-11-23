@@ -54,6 +54,7 @@ button {
   background-color: #d7e5f3;
   margin-right: 20px;
   font-size: 16px;
+  color: #222;
 }
 button:hover,
 button:focus {
@@ -132,6 +133,7 @@ p {
 }
 .forecast-day {
   text-align: center;
+  margin: 0;
 }
 .forecast-elem img {
   display: inline-block;
@@ -195,7 +197,7 @@ p {
 
 @media (max-width: 500px) {
   .current-weather {
-    padding: 90px 100px 60px;
+    padding: 90px 120px 60px;
     margin: 20px 0px;
   }
   .current-weather div {
@@ -217,8 +219,11 @@ p {
     display: block;
     margin: 15px auto 0;
   }
+  .current-weather {
+    margin: 20px 0px 0px;
+  }
 }
-@media (max-width: 390px) {
+@media (max-width: 396px) {
   .current-weather {
     background-image: none;
     padding: 15px;
