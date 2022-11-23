@@ -119,6 +119,7 @@ p {
   width: 50%;
   padding: 15px;
   border: 2px solid transparent;
+  text-align: center;
 }
 
 .forecast-elem:hover .forecast-day {
@@ -134,10 +135,11 @@ p {
 .forecast-elem img {
   display: block;
   margin: 0px auto;
+  height: 80px;
+  width: 80px;
 }
 .forecast-temp {
   text-align: center;
-  padding: 0 22px;
 }
 .forecast-temp-max {
   color: #025fc9;
