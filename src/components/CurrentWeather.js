@@ -1,7 +1,6 @@
 import React from "react";
 import FormattedDate from "./FormattedDate";
 import Temperature from "./Temperature";
-// import img from "../img/img-1.png";
 
 export default function CurrentWeather({ data }) {
   return (
