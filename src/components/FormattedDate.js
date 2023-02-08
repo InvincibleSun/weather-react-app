@@ -16,7 +16,7 @@ export default function FormattedDate({ date }) {
 
   const year = date.getFullYear();
 
-  let month = date.getMonth();
+  let month = date.getMonth() + 1;
   if (month < 10) {
     month = "0" + month;
   }
@@ -28,7 +28,7 @@ export default function FormattedDate({ date }) {
 
   return (
     <div className="time">
-      {day} {hours}:{minutes} | {num}.{+month + 1}.{year}
+      {day} {hours}:{minutes} | {num}.{month}.{year}
     </div>
   );
 }
